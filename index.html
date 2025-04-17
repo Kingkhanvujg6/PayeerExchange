@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Payeer Exchange</title>
+  <style>
+    body { font-family: Arial; text-align: center; padding: 20px; background-color: #f4f4f4; }
+    h1 { color: #333; }
+    input, button { padding: 10px; margin: 10px; }
+    form { background-color: #fff; padding: 20px; border-radius: 10px; display: inline-block; }
+  </style>
+</head>
+<body>
+  <h1>Payeer Exchange</h1>
+  
+  <h3>Exchange Calculator</h3>
+  <p>Enter amount in USD:</p>
+  <input type="number" id="usd" placeholder="10" />
+  <button onclick="calc()">Calculate</button>
+  <p id="result"></p>
+  
+  <script>
+    function calc() {
+      const rate = 245;
+      const usd = parseFloat(document.getElementById('usd').value);
+      const result = usd * rate;
+      document.getElementById('result').innerText = 'You will pay: Rs ' + result.toFixed(2);
+    }
+  </script>
+
+  <h3>Place Your Order</h3>
+  <form method="POST" action="order.php">
+    <input type="text" name="name" placeholder="Your Name" required /><br/>
+    <input type="email" name="email" placeholder="Your Email" required /><br/>
+    <input type="text" name="amount" placeholder="Amount in USD" required /><br/>
+    <input type="text" name="payeer" placeholder="Your Payeer Account" required /><br/>
+    <button type="submit">Submit Order</button>
+  </form>
+
+  <h3>Contact Us</h3>
+  <p>WhatsApp: <a href="https://wa.me/923206684801">Click to Chat</a></p>
+</body>
+</html>
