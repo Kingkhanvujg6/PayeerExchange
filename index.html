@@ -2,42 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Payeer Exchange</title>
   <style>
-    body { font-family: Arial; text-align: center; padding: 20px; background-color: #f4f4f4; }
-    h1 { color: #333; }
-    input, button { padding: 10px; margin: 10px; }
-    form { background-color: #fff; padding: 20px; border-radius: 10px; display: inline-block; }
+    body { font-family: sans-serif; text-align: center; padding: 20px; }
+    input, textarea { display: block; width: 100%; max-width: 400px; margin: 10px auto; padding: 10px; }
+    button { padding: 10px 20px; background: #28a745; color: white; border: none; }
   </style>
 </head>
 <body>
   <h1>Payeer Exchange</h1>
-  
-  <h3>Exchange Calculator</h3>
-  <p>Enter amount in USD:</p>
-  <input type="number" id="usd" placeholder="10" />
-  <button onclick="calc()">Calculate</button>
-  <p id="result"></p>
-  
-  <script>
-    function calc() {
-      const rate = 245;
-      const usd = parseFloat(document.getElementById('usd').value);
-      const result = usd * rate;
-      document.getElementById('result').innerText = 'You will pay: Rs ' + result.toFixed(2);
-    }
-  </script>
+  <p>Buy & Sell Payeer Dollar at Best Rates</p>
+  <h3>Rate: 1 USD = Rs. 245</h3>
 
-  <h3>Place Your Order</h3>
-  <form method="POST" action="order.php">
-    <input type="text" name="name" placeholder="Your Name" required /><br/>
-    <input type="email" name="email" placeholder="Your Email" required /><br/>
-    <input type="text" name="amount" placeholder="Amount in USD" required /><br/>
-    <input type="text" name="payeer" placeholder="Your Payeer Account" required /><br/>
-    <button type="submit">Submit Order</button>
+  <form action="https://formspree.io/f/mdkevjrv" method="POST" enctype="multipart/form-data">
+    <input type="text" name="name" placeholder="Your Full Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <input type="text" name="payeer_id" placeholder="Your Payeer Wallet ID" required />
+    <input type="text" name="amount" placeholder="Amount in USD" required />
+    <input type="text" name="whatsapp" placeholder="Your WhatsApp Number" required />
+    <label>Upload Screenshot:</label>
+    <input type="file" name="screenshot" accept="image/*" required />
+    <button type="submit">Place Order</button>
   </form>
 
-  <h3>Contact Us</h3>
-  <p>WhatsApp: <a href="https://wa.me/923206684801">Click to Chat</a></p>
+  <p>Need help? Chat with us on WhatsApp:</p>
+  <a href="https://wa.me/923206684801" target="_blank">
+    <button style="background:#25D366;">Chat on WhatsApp</button>
+  </a>
 </body>
 </html>
